@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Hey <%= intdata.username %> 👋</h1>
+    <a href="/notes/profile">profile detail</a>
+
+    <h1>Your Notes</h1>
+    <a href="/notes/add">Add Note</a>
+
+    <ul>
+    <% notes.forEach(note => { %>
+        <li>
+            <strong><%= note.title %></strong> - <%= note.description %>
+            <a href="/notes/edit/<%= note._id %>">Edit</a>
+            
+            <form method="POST" action="/notes/delete/<%= note._id %>?_method=DELETE" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html lang="en">    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <!-- this the link to connect the tailwind css in ejs file go to tailwindcss.com then get stareted btn then click on play cdn the copy link -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>  -->
+        <script src="https://cdn.tailwindcss.com"></script> 
+    </head>
+
+    <body>
+
+        <div>
+            <form method="post" action="/create" style="display: flex; margin: 30px 650px; flex-direction: column; border: 2px solid black;margin-left: 5px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Enter the username" name="username" style="border: 2px solid black; width: 200px; padding: 4px 4px;">
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="email" placeholder="Enter the email" name="email" style="border: 2px solid black; width: 200px; padding: 4px 4px;">
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" placeholder="Enter the password" name="password" style="border: 2px solid black; width: 200px; padding: 4px 4px;">
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Enter the age" name="age" style="border: 2px solid black; width: 200px; padding: 4px 4px;">
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;
+            
+                <!-- <input type="submit" value="Create User" style="border: 2px solid black; width: 150px; margin-left: 25px;"> -->
+                <button type="submit">submit</button>
+
+                
+            </form>
+
+            <form action="/login" method="get">
+                <button type="submit">login</button>
+            </form>
+
+        </div>
+
+    </body>
+</html>
