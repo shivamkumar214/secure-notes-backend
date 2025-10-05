@@ -32,6 +32,13 @@ app.use(methodOverride('_method'));
 const noteRoutes = require('./routes/notes');
 app.use('/notes', noteRoutes);
 
+app.get("/", (req, res) => {
+    res.render('root-page.ejs');
+})
+
+
+
+
 app.get("/signup", (req, res) => {
     res.render('signup.ejs');
 });
