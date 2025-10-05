@@ -2,12 +2,17 @@
 const userModel = require('./models/user');
 const isAuthenticated = require('./middleware/isAuth');
 
-
-
-
-
-
 require('dotenv').config();
+
+const mongoose = require("mongoose");
+
+mongoose.connect('mongodb+srv://shivamkumar749362_db_user:LLc58nI8godYHdIu@cluster0.1dt8jfr.mongodb.net/authtestapp?retryWrites=true&w=majority')
+  .then(() => console.log("MongoDB Atlas connected"))
+  .catch(err => console.log(err));
+
+
+
+
 
 const express = require('express');
 const app = express();
