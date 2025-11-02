@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+  <link rel="stylesheet" href="/dashboard.css">
 </head>
 <body>
     <h1>Hey <%= intdata.username %> 👋</h1>
@@ -27,4 +28,48 @@
 
 
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+  <div class="header-bar">
+    <h1>Hey <%= intdata.username %> 👋</h1>
+    <div>
+      <a href="/notes/profile">Profile</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+  <div class="notes-section">
+    <h1>Your Notes</h1>
+    <a href="/notes/add" class="add-note-btn">+ Add Note</a>
+
+    <ul>
+      <% notes.forEach(note => { %>
+        <li>
+          <div>
+            <strong><%= note.title %></strong> - <%= note.description %>
+          </div>
+          <div>
+            <a href="/notes/edit/<%= note._id %>">Edit</a>
+            <form method="POST" action="/notes/delete/<%= note._id %>?_method=DELETE">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
 </html>
+
+
+<!-- kk@gmail.com -->

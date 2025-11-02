@@ -1,22 +1,14 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>edit note</title>
+  <link rel="stylesheet" href="/edit-notes.css">
 </head>
 <body>
 
     <h1>Edit Note</h1>
-
-    <!-- <form method="PUT" action="/notes/edit/<%= note._id %>">
-        <input type="text" name="title" value="<%= note.title %>" required />
-        <br />
-        <textarea name="description" required><%= note.description %></textarea>
-        <br />
-        <button type="submit">Update Note</button>
-    </form> -->
-
     <form action="/notes/edit/<%= note._id %>?_method=PUT" method="POST">
         <input type="text" name="title" value="<%= note.title %>" required />
         <br />
@@ -26,5 +18,26 @@
     </form>
 
 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Note</title>
+  <link rel="stylesheet" href="/edit-notes.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Note</h1>
+    <form action="/notes/edit/<%= note._id %>?_method=PUT" method="POST">
+      <input type="text" name="title" value="<%= note.title %>" required />
+      <textarea name="description" required><%= note.description %></textarea>
+      <button type="submit">Update Note</button>
+    </form>
+    <a href="/notes/dashboard" class="back-link">← Back to Dashboard</a>
+  </div>
 </body>
 </html>

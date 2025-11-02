@@ -1,0 +1,73 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container styling */
+.container {
+  background-color: #fff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.form input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.form input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* Submit button */
+.form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  transition: background 0.3s ease;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Link to signup */
+.signup-link {
+  margin-top: 15px;
+  display: block;
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}

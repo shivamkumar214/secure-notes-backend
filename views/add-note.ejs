@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a note</title>
+    <link rel="stylesheet" href="/add-notes.css">
 </head>
 <body>
     
@@ -16,5 +17,28 @@
         <button type="submit">Add Note</button>
     </form>
 
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a Note</title>
+  <link rel="stylesheet" href="/add-notes.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add a New Note</h1>
+    <form method="POST" action="/notes/add">
+      <input type="text" name="title" placeholder="Title" required />
+      <textarea name="description" placeholder="Description" required></textarea>
+      <button type="submit">Add Note</button>
+    </form>
+    <a href="/notes/dashboard" class="back-link">← Back to Dashboard</a>
+  </div>
 </body>
 </html>

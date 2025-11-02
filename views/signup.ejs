@@ -1,12 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
     <html lang="en">    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-
-        <!-- this the link to connect the tailwind css in ejs file go to tailwindcss.com then get stareted btn then click on play cdn the copy link -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>  -->
+        <link rel="stylesheet" href="./signup.css">
         <script src="https://cdn.tailwindcss.com"></script> 
     </head>
 
@@ -25,7 +23,7 @@
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;
             
                 <!-- <input type="submit" value="Create User" style="border: 2px solid black; width: 150px; margin-left: 25px;"> -->
-                <button type="submit">submit</button>
+                <!-- <button type="submit">submit</button>
 
                 
             </form>
@@ -37,4 +35,32 @@
         </div>
 
     </body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Notes App</title>
+    <link rel="stylesheet" href="/signup.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create an Account</h1>
+
+        <form method="post" action="/create" class="form">
+            <input type="text" placeholder="Enter your username" name="username" required>
+            <input type="email" placeholder="Enter your email" name="email" required>
+            <input type="password" placeholder="Enter your password" name="password" required>
+            <input type="text" placeholder="Enter your age" name="age" required>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <p>Already have an account?</p>
+        <a href="/login" class="btn secondary">Login</a>
+    </div>
+</body>
 </html>

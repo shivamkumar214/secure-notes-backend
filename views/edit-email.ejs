@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>change email</title>
+  <link rel="stylesheet" href="/edit-email.css">
 </head>
     
      <h1> Edit email here</h1>
@@ -16,5 +17,29 @@
         <button type="submit">Update</button>
     </form>
 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Email</title>
+  <link rel="stylesheet" href="/edit-email.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Email</h1>
+    <h3>Old Email: <i><%= intdata.email %></i></h3>
+
+    <form action="/notes/update/email?_method=PUT" method="POST">
+      <input type="email" name="newEmail" placeholder="Enter new email" required />
+      <button type="submit">Update</button>
+    </form>
+
+    <a href="/notes/profile" class="back-link">← Back to Profile</a>
+  </div>
 </body>
 </html>

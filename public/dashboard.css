@@ -1,0 +1,116 @@
+/* Base styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  padding: 40px;
+}
+
+/* Header section */
+h1 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+/* Top bar links */
+a {
+  text-decoration: none;
+  color: #4caf50;
+  font-weight: bold;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #388e3c;
+}
+
+/* Notes section */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Note content */
+li strong {
+  color: #333;
+  font-size: 18px;
+}
+
+/* Edit & Delete buttons */
+li a {
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+li a:hover {
+  background-color: #45a049;
+}
+
+form {
+  display: inline;
+}
+
+form button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #e53935;
+}
+
+/* Add Note button */
+.add-note-btn {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.add-note-btn:hover {
+  background-color: #45a049;
+}
+
+/* Layout improvements */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.notes-section {
+  max-width: 700px;
+  margin: 0 auto;
+}

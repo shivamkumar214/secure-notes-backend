@@ -1,0 +1,73 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container */
+.container {
+  background-color: #fff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 420px;
+  text-align: center;
+}
+
+/* Header */
+h1 {
+  color: #2e7d32;
+  margin-bottom: 25px;
+}
+
+/* Profile info */
+.profile-info {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.profile-item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Change links */
+.profile-item a {
+  text-decoration: none;
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.profile-item a:hover {
+  background-color: #45a049;
+}
+
+/* Back button */
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

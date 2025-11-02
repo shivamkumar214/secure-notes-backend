@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile-detail</title>
+  <link rel="stylesheet" href="/profile-detail.css">
 </head>
 
 <body>
@@ -23,8 +24,40 @@
     <h3 style="display:inline;">password</h3> &nbsp;&nbsp;&nbsp;&nbsp;
     <a href="/notes/update/email">change password</a>
 
- <!-- https://github.com/shivamkumar214/secure-notes-backend.git -->
-    <!-- <h3 style="display:inline;">age: <%= intdata.age %></h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/update/age">change age</a> -->
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Details</title>
+  <link rel="stylesheet" href="/profile-detail.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hey <%= intdata.username %> 👋</h1>
+
+    <div class="profile-info">
+      <div class="profile-item">
+        <h3>Username: <%= intdata.username %></h3>
+        <a href="/notes/update/username">Change</a>
+      </div>
+
+      <div class="profile-item">
+        <h3>Email: <%= intdata.email %></h3>
+        <a href="/notes/update/email">Change</a>
+      </div>
+
+      <div class="profile-item">
+        <h3>Password: ••••••••</h3>
+        <a href="/notes/update/password">Change</a>
+      </div>
+    </div>
+
+    <a href="/notes/dashboard" class="back-link">← Back to Dashboard</a>
+  </div>
 </body>
 </html>

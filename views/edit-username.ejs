@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit username</title>
+  <link rel="stylesheet" href="/edit-username.css">
 </head>
 <body>
     <h1> Edit username here</h1>
@@ -16,5 +17,28 @@
         <button type="submit">Update</button>
     </form>
 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Username</title>
+  <link rel="stylesheet" href="/edit-username.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Username</h1>
+    <h3>Old Username: <i><%= intdata.username %></i></h3>
+
+    <form action="/notes/update/username?_method=PUT" method="POST">
+      <input type="text" name="newUsername" placeholder="Enter new username" required />
+      <button type="submit">Update</button>
+    </form>
+
+    <a href="/notes/profile" class="back-link">← Back to Profile</a>
+  </div>
 </body>
 </html>

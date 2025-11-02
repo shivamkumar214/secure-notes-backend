@@ -1,14 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <!-- this the link to connect the tailwind css in ejs file go to tailwindcss.com then get stareted btn then click on play cdn the copy link -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>  -->
-    <script src="https://cdn.tailwindcss.com"></script> 
-
+    <link rel="stylesheet" href="/login.css">
 </head>
 <body>
 
@@ -19,12 +15,36 @@
 
             <input type="email" placeholder="Enter the email" name="email" style="border: 2px solid black; width: 200px; padding: 4px 4px;" required>
             <!-- <input type="email" placeholder="Enter the email" name="email"> -->
-            <input type="password" placeholder="Enter the password" name="password" style="border: 2px solid black; width: 200px; padding: 4px 4px;" required>
+            <!-- <input type="password" placeholder="Enter the password" name="password" style="border: 2px solid black; width: 200px; padding: 4px 4px;" required> -->
             <!-- <input type="text" placeholder="Enter the age" name="age"> -->
-            <input type="submit" value="Login User"style="border: 2px solid black; width: 200px; padding: 4px 4px;">
+            <!-- <input type="submit" value="Login User"style="border: 2px solid black; width: 200px; padding: 4px 4px;">
         </form>
 
     </div>
 
+</body>
+</html> --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Notes App</title>
+  <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Login to Your Account</h2>
+
+    <form method="post" action="/login" class="form">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <input type="password" name="password" placeholder="Enter your password" required>
+      <input type="submit" value="Login">
+    </form>
+
+    <a href="/signup" class="signup-link">Don't have an account? Sign up</a>
+  </div>
 </body>
 </html>
