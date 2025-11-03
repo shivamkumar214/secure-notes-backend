@@ -36,3 +36,15 @@ body {
 .form button {
   width: 150px;
 }
+
+.already {
+  margin-top: 15px;
+  display: block;
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.already:hover {
+  text-decoration: underline;
+}
