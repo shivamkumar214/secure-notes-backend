@@ -8,7 +8,7 @@ function isAuthenticated(req, res, next) {
     
     try {
         let data = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = data;         // Because req is the object passed through all middlewares and routes.
+        req.currentUser = data;         // Because req is the object passed through all middlewares and routes.
         next();                 // You’re storing the authenticated user's info in req.user so it's available everywhere.
     } catch {
         return res.redirect('/login');

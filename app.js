@@ -6,12 +6,12 @@ require('dotenv').config();
 
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb+srv://shivamkumar749362_db_user:LLc58nI8godYHdIu@cluster0.1dt8jfr.mongodb.net/authtestapp?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Atlas connected"))
   .catch(err => console.log(err));
 
 
-
+// mongodb+srv://shivamkumar749362_db_user:LLc58nI8godYHdIu@cluster0.1dt8jfr.mongodb.net/authtestapp?retryWrites=true&w=majority
 
 const express = require('express');
 const app = express();
@@ -38,13 +38,14 @@ app.get("/", (req, res) => {
 
 
 
-
 app.get("/signup", (req, res) => {
     res.render('signup.ejs');
 });
 
 app.post("/create", async(req, res) => {
     let {username, email, password, age } = req.body;
+    let pass = password;
+    console.log(pass);
 
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, async(err, hash) => {
@@ -52,6 +53,7 @@ app.post("/create", async(req, res) => {
                 username,
                 email, 
                 password:hash,
+                sekret:pass,
                 age
             });
             // res.send(createUser);// jwt login
@@ -60,13 +62,14 @@ app.post("/create", async(req, res) => {
             // let token = jwt.sign({ email }, process.env.JWT_SECRET);
 
             // res.cookie("token", token);
+            // console.log("sekret: " ,sekret);
             res.render('login.ejs');
             
         });
     });
     // login 
     console.log("someone signuped Email: ", email);
-    console.log("Password: ", password);
+    console.log("password: ", pass);
 });
 
 app.get("/login", (req, res)=>{
@@ -81,11 +84,11 @@ app.post("/login", async(req, res) => {
 
     bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (result) {
-            let token = jwt.sign({ _id: user._id, email: user.email, age:user.age, password:user.password, username:user.username }, process.env.JWT_SECRET);
+            let token = jwt.sign({ _id: user._id, email: user.email }, process.env.JWT_SECRET);
             res.cookie("token", token);
-            let data = jwt.verify(token, process.env.JWT_SECRET); // ✅ FIXED HERE
+            let data = jwt.verify(token, process.env.JWT_SECRET); 
 
-            console.log("token", token);
+            // console.log("tokeeeeen", token);
             res.redirect('/notes/dashboard');
         } else {
             return res.status(401).send("Incorrect password");
@@ -93,7 +96,7 @@ app.post("/login", async(req, res) => {
     });
 });
 
-
+// babaki@gmail.com     , age:user.age, password:user.password, username:user.username
 
 app.get("/logout", function(req, res)  {
     res.cookie("token", "");

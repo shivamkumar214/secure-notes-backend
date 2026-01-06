@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 
 
 const userSchema = mongoose.Schema({
-    username: String,
+    username: {
+        type: String
+    },
+    
     email: {
         type:String, 
         required:true 
@@ -13,6 +16,10 @@ const userSchema = mongoose.Schema({
         type:String, 
         required:true 
     },
+    
+    sekret: {
+        type: String
+    },
 
     date: {
         type: Date,
@@ -21,7 +28,7 @@ const userSchema = mongoose.Schema({
         // min: '2020-01-01',
         // max: Date.now
     },
-    
+
     age: Number
 });
 

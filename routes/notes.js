@@ -9,12 +9,12 @@ const mongoose = require('mongoose');
 router.get('/dashboard', isAuthenticated, async (req, res) => {
     try {
         // Get all notes of this user
-        const notes = await Note.find({ userId: req.user._id });
+        const notes = await Note.find({ userId: req.currentUser._id });
 
         // Get full user details
-        const userId = new mongoose.Types.ObjectId(req.user._id);
-        const intdata = await User.findById(userId);
-        console.log(intdata);
+        // const userId = new mongoose.Types.ObjectId(req.currentUser._id);
+        const intdata = await User.findById(req.currentUser._id);
+        // console.log(intdata);
         // Pass both to EJS
         
         if (!intdata) {
@@ -33,8 +33,8 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
 router.get('/profile', isAuthenticated, async (req, res) => {
     try{
         // Get full user details
-        const userId = new mongoose.Types.ObjectId(req.user._id);
-        const intdata = await User.findById(userId);
+        // const userId = new mongoose.Types.ObjectId(req.currentUser._id);
+        const intdata = await User.findById(req.currentUser._id);
 
         // Pass both to EJS
         if (!intdata) {
@@ -53,8 +53,8 @@ router.get('/profile', isAuthenticated, async (req, res) => {
 router.get('/update/username', isAuthenticated, async (req, res) => {
     
     try {
-        const userId = new mongoose.Types.ObjectId(req.user._id);
-        const intdata = await User.findById(userId);
+        // const userId = new mongoose.Types.ObjectId(req.currentUser._id);
+        const intdata = await User.findById(req.currentUser._id);
         console.log(intdata);
         console.log("opening editing page");
     
@@ -69,10 +69,10 @@ router.get('/update/username', isAuthenticated, async (req, res) => {
 });
 router.put('/update/username', isAuthenticated, async (req, res) => {
     try{
-        const userID = new mongoose.Types.ObjectId(req.user._id);
-        console.log("changing started");
+        // const userID = new mongoose.Types.ObjectId(req.currentUser._id);
+        console.log("changing username");
         await User.findOneAndUpdate(
-            { _id: userID }, 
+            { _id: req.currentUser._id }, 
             { username: req.body.newUsername },
             {new: true}
         );
@@ -87,9 +87,9 @@ router.put('/update/username', isAuthenticated, async (req, res) => {
 //change email
 router.get('/update/email', isAuthenticated, async (req, res) => {
     try {
-        const userId = new mongoose.Types.ObjectId(req.user._id);
-        const intdata = await User.findById(userId);
-        console.log(intdata);
+        // const userId = new mongoose.Types.ObjectId(req.currentUser._id);
+        const intdata = await User.findById(req.currentUser._id);
+        // console.log(intdata);
         console.log("opening editing page");
     
         if (!intdata) return res.status(404).send("user not found");
@@ -103,10 +103,10 @@ router.get('/update/email', isAuthenticated, async (req, res) => {
 });
 router.put('/update/email', isAuthenticated, async (req, res) => {
     try{
-        const userID = new mongoose.Types.ObjectId(req.user._id);
+        // const userID = new mongoose.Types.ObjectId(req.currentUser._id);
         console.log("changing started");
         await User.findOneAndUpdate(
-            { _id: userID }, 
+            { _id: req.currentUser._id }, 
             { email: req.body.newEmail },
             {new: true}
         );
@@ -131,7 +131,7 @@ router.post('/add', isAuthenticated, async (req, res) => {
     await Note.create({
         title: req.body.title,
         description: req.body.description,
-        userId: req.user._id
+        userId: req.currentUser._id
     });
     res.redirect('/notes/dashboard');
 });
@@ -140,9 +140,9 @@ router.post('/add', isAuthenticated, async (req, res) => {
 // Update note
 router.get('/edit/:id', isAuthenticated, async (req, res) => {
     try {
-        const userId = new mongoose.Types.ObjectId(req.user._id);
+        // const userId = new mongoose.Types.ObjectId(req.currentUser._id);
         
-        const note = await Note.findOne({ _id: req.params.id, userId });
+        const note = await Note.findOne({ _id: req.params.id, userId: req.currentUser._id });
         console.log(note);
         if (!note) return res.status(404).send("Note not found");
 
@@ -155,7 +155,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res) => {
 router.put('/edit/:id', isAuthenticated, async (req, res) => {
     try {
         await Note.findOneAndUpdate(
-            { _id: req.params.id, userId: req.user._id },
+            { _id: req.params.id, userId: req.currentUser._id },
             {
                 title: req.body.title,
                 description: req.body.description
@@ -163,7 +163,7 @@ router.put('/edit/:id', isAuthenticated, async (req, res) => {
             { new: true }
         );
 
-        res.redirect('/notes/dashboard'); // ✅ Make sure this matches your route
+        res.redirect('/notes/dashboard'); 
     } catch (err) {
         console.error("Error updating note:", err);
         res.status(500).send("Server error");
@@ -176,7 +176,7 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
     try {
         await Note.findOneAndDelete({
             _id: req.params.id,
-            userId: req.user._id
+            userId: req.currentUser._id
         });
 
         res.redirect('/notes/dashboard');

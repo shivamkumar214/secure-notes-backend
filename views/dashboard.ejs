@@ -53,10 +53,10 @@
     <a href="/notes/add" class="add-note-btn">+ Add Note</a>
 
     <ul>
-      <% notes.forEach(note => { %>
+      <% notes.forEach((note) => { %>
         <li>
           <div>
-            <strong><%= note.title %></strong> - <%= note.description %>
+            <strong><%= note.title %></strong> - <p class="descri"><%= note.description %></p>
           </div>
           <div>
             <a href="/notes/edit/<%= note._id %>">Edit</a>
